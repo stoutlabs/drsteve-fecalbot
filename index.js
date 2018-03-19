@@ -22,7 +22,7 @@ const r = new Snoowrap({
 const client = new Snoostorm(r);
 
 const streamOpts = {
-  subreddit: "testingground4bots",
+  subreddit: process.env.FB_SUBREDDIT,
   results: 5,
   pollTime: 25000
 };
