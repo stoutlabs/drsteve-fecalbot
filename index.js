@@ -52,16 +52,21 @@ comments.on("comment", comment => {
       .fetch()
       .then(parentcomment => {
         goesTo = points.formatUsername(parentcomment.author.name);
-        points.addPoints(author, goesTo).then(newPoints => {
-          const senderData = points.fetchUserData(author);
-          const receiverData = points.fetchUserData(goesTo);
-          message += `${goesTo}! ${poop} \n\n > You have received (${
-            newPoints.received
-          }) in total, and ${author} has sent out (${newPoints.sent}) in total.`;
+        points
+          .addPoints(author, goesTo)
+          .then(newPoints => {
+            const senderData = points.fetchUserData(author);
+            const receiverData = points.fetchUserData(goesTo);
+            message += `${goesTo}! ${poop} \n\n > You have received (${
+              newPoints.received
+            }) in total, and ${author} has sent out (${newPoints.sent}) in total.`;
 
-          parentcomment.reply(message);
-          console.log(message);
-        });
+            parentcomment.reply(message);
+            console.log(message);
+          })
+          .catch(e => {
+            console.log(e);
+          });
 
         return;
       })
