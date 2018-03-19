@@ -8,6 +8,14 @@ class Points {
     this.points = {};
   }
 
+  initPointsData() {
+    if (fs.existsSync(pointsFile)) {
+      this.fetchPointsData();
+    } else {
+      this.savePointsData();
+    }
+  }
+
   fetchPointsData() {
     try {
       const pointsString = fs.readFileSync(pointsFile);

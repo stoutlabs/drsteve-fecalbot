@@ -1,3 +1,7 @@
 {
-  "users": []
+  "users": [
+    { "username": "u/Fecal__Bot", "sent": 1, "received": 1 },
+    { "username": "u/eyecache", "sent": 9, "received": 7 },
+    { "username": "u/drsteve103", "sent": 4, "received": 2 }
+  ]
 }

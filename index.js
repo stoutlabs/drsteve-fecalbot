@@ -9,7 +9,7 @@ const Snoostorm = require("snoostorm");
 //load up the points tracking stuff
 const Points = require("./utils/Points.js");
 const points = new Points();
-points.fetchPointsData(); // sets points.points initial data
+points.initPointsData(); // sets points.points initial data
 
 // Build Snoowrap and Snoostorm clients
 const r = new Snoowrap({
