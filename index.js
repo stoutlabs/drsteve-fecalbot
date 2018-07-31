@@ -13,7 +13,7 @@ points.initPointsData(); // sets points.points initial data
 
 // Build Snoowrap and Snoostorm clients
 const r = new Snoowrap({
-  userAgent: "node:drsteve-fecalbot:v1.0.0",
+  userAgent: "node:drsteve-fecalbot:v1.0.1",
   clientId: process.env.FB_CLIENT_ID,
   clientSecret: process.env.FB_CLIENT_SECRET,
   username: process.env.FB_REDDIT_USER,
@@ -30,10 +30,10 @@ const streamOpts = {
 // Create a Snoostorm CommentStream with the specified options
 const comments = client.CommentStream(streamOpts);
 
-// On comment, perform whatever logic you want to do
 comments.on("comment", comment => {
   //console.log(comment);
-  if (comment.body.toLowerCase().startsWith("!reddit")) {
+  // if(comment.author.name === "dr_steve")
+  if (comment.author.name === "drsteve103" && comment.body.toLowerCase().startsWith("!reddit")) {
     const author = points.formatUsername(comment.author.name);
     const commentArr = comment.body.split(" ");
 
@@ -47,8 +47,7 @@ comments.on("comment", comment => {
     const poop = emoji.emojify(":poop:");
     let message = `> ##### Here's your Reddit ${giftType}, `;
 
-    r
-      .getComment(comment.parent_id)
+    r.getComment(comment.parent_id)
       .fetch()
       .then(parentcomment => {
         goesTo = points.formatUsername(parentcomment.author.name);
