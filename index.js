@@ -24,7 +24,7 @@ const client = new Snoostorm(r);
 const streamOpts = {
   subreddit: process.env.FB_SUBREDDIT,
   results: 25,
-  pollTime: 25000
+  pollTime: 15000
 };
 
 // Create a Snoostorm CommentStream with the specified options
