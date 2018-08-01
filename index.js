@@ -23,7 +23,7 @@ const client = new Snoostorm(r);
 
 const streamOpts = {
   subreddit: process.env.FB_SUBREDDIT,
-  results: 5,
+  results: 25,
   pollTime: 25000
 };
 
@@ -33,7 +33,10 @@ const comments = client.CommentStream(streamOpts);
 comments.on("comment", comment => {
   //console.log(comment);
   // if(comment.author.name === "dr_steve")
-  if (comment.author.name === "drsteve103" && comment.body.toLowerCase().startsWith("!reddit")) {
+  if (
+    (comment.author.name === "drsteve103" || comment.author.name === "eyecache") &&
+    comment.body.toLowerCase().startsWith("!reddit")
+  ) {
     const author = points.formatUsername(comment.author.name);
     const commentArr = comment.body.split(" ");
 
