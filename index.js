@@ -43,7 +43,7 @@ comments.on("comment", comment => {
     let giftType = commentArr[0].replace(/!reddit/i, "");
     if (giftType !== "") {
       giftType = giftType.charAt(0).toUpperCase() + giftType.slice(1);
-      giftType = giftType.replace(/_|-/gi, " ");
+      giftType = giftType.replace(/(\\_)|(\\-)/gi, " ");
     } else {
       giftType = "Feces";
     }
@@ -65,7 +65,7 @@ comments.on("comment", comment => {
             }) in total, and ${author} has sent out (${newPoints.sent}) in total.`;
 
             parentcomment.reply(message);
-            console.log(message);
+            //console.log(message);
           })
           .catch(e => {
             console.log(e);
