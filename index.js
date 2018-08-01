@@ -40,6 +40,7 @@ comments.on("comment", comment => {
     let giftType = commentArr[0].replace(/!reddit/i, "");
     if (giftType !== "") {
       giftType = giftType.charAt(0).toUpperCase() + giftType.slice(1);
+      giftType = giftType.replace(/_|-/gi, " ");
     } else {
       giftType = "Feces";
     }
