@@ -10,9 +10,12 @@
   "author": "StoutLabs",
   "license": "ISC",
   "dependencies": {
-    "dotenv": "^5.0.1",
-    "node-emoji": "^1.8.1",
-    "snoostorm": "^0.0.5",
-    "snoowrap": "^1.15.2"
+    "dotenv": "^8.0.0",
+    "node-emoji": "^1.10.0",
+    "snoostorm": "^1.0.2",
+    "snoowrap": "^1.17.0"
+  },
+  "resolutions": {
+    "lodash": "^4.17.13"
   }
 }
